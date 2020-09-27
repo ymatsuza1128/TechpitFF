@@ -30,7 +30,6 @@ while ($tiida->hitPoints > 0 && $goblin->hitPoints > 0) {
     
     $turn++; // ここを追加
 
-
 }
 echo "★★★ 戦闘終了 ★★★\n\n";
 echo $tiida->name . "　：　" . $tiida->hitPoints . "/" . $tiida::MAX_HITPOINTS . "\n";
