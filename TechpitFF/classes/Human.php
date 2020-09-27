@@ -2,13 +2,11 @@
 
 class Human
 {
-    //==========ここから追加する==========
     // プロパティ
     const MAX_HITPOINTS = 100; // 最大HPの定義 定数
     public $name; // 人間の名前
     public $hitPoints = self::MAX_HITPOINTS; // 現在のHP
     public $attackPoints = 20; // 攻撃力
-    //==========ここまで追加する==========
     
     public function doAttack($enemy)
     {
