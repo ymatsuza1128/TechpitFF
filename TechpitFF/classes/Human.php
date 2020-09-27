@@ -8,6 +8,7 @@ class Human
     public $hitPoints = self::MAX_HITPOINTS; // 現在のHP
     public $attackPoints = 20; // 攻撃力
     
+    // メソッド
     public function doAttack($enemy)
     {
         echo "『" .$this->name . "』の攻撃！\n";
