@@ -3,7 +3,7 @@ class Enemy
 {
     const MAX_HITPOINTS = 50; // 最大HPの定義 定数
     public $name; // 敵の名前
-    public $hitPoints = self::MAX_HITPOINTS; // 現在のHP
+    public $hitPoints = 50; // 現在のHP
     public $attackPoints = 10; // 攻撃力
     
     public function doAttack($human)
