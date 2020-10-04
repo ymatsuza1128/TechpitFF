@@ -10,7 +10,7 @@ require_once('./classes/Brave.php');
 $tiida = new Brave();
 $goblin = new Enemy();
 
-$tiida->name("ティーダ");
+$tiida->name = "ティーダ";
 $goblin->name = "ゴブリン";
 
 $turn = 1; // ここを追加
@@ -28,7 +28,7 @@ while ($tiida->getHitPoints() > 0 && $goblin->hitPoints > 0) {
     echo "\n";
     $goblin->doAttack($tiida);
     echo "\n";
-    
+
     $turn++; // ここを追加
 
 }

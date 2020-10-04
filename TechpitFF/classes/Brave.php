@@ -6,7 +6,7 @@ class Brave extends Human
     // private $name;
     private $hitPoints = self::MAX_HITPOINTS;
     private $attackPoints = 20;
- 
+
     public function doAttack($enemy)
     {
         // 乱数の発生
@@ -20,5 +20,5 @@ class Brave extends Human
             parent::doAttack($enemy);
         }
         return true;
-    }   
+    }
 }

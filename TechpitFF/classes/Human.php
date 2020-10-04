@@ -7,7 +7,7 @@ class Human
     private $name; // 人間の名前
     private $hitPoints = 100; // 現在のHP
     private $attackPoints = 20; // 攻撃力
-    
+
     // メソッド
     public function doAttack($enemy)
     {
@@ -15,7 +15,7 @@ class Human
         echo "【" . $enemy->name . "】に " . $this->attackPoints . " のダメージ！\n";
         $enemy->takeDamege($this->attackPoints);
     }
-    
+
     public function takeDamege($damege)
     {
         $this->hitPoints -= $damege;
@@ -24,22 +24,22 @@ class Human
             $this->hitPoints = 0;
         }
     }
-    
+
     public function getName()
     {
         return $this->name;
     }
-    
+
     public function setName($name)
     {
         $this->name = $name;
     }
-    
+
     public function getHitPoints()
     {
         return $this->hitPoints;
     }
-    
+
     public function getAttackPoints()
     {
         return $this->attackPoints;
