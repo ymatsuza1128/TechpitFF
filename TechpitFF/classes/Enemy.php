@@ -2,14 +2,14 @@
 class Enemy
 {
     const MAX_HITPOINTS = 50; // 最大HPの定義 定数
-    public $name; // 敵の名前
-    public $hitPoints = 50; // 現在のHP
-    public $attackPoints = 10; // 攻撃力
+    private $name; // 敵の名前
+    private $hitPoints = 50; // 現在のHP
+    private $attackPoints = 10; // 攻撃力
     
     public function doAttack($human)
     {
         echo "『" .$this->name . "』の攻撃！\n";
-        echo "【" . $human->name . "】に " . $this->attackPoints . " のダメージ！\n";
+        echo "【" . $human->getName() . "】に " . $this->attackPoints . " のダメージ！\n";
         $human->takeDamege($this->attackPoints);
     }
     

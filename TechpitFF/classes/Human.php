@@ -4,9 +4,9 @@ class Human
 {
     // プロパティ
     const MAX_HITPOINTS = 100; // 最大HPの定義 定数
-    public $name; // 人間の名前
-    public $hitPoints = 100; // 現在のHP
-    public $attackPoints = 20; // 攻撃力
+    private $name; // 人間の名前
+    private $hitPoints = 100; // 現在のHP
+    private $attackPoints = 20; // 攻撃力
     
     // メソッド
     public function doAttack($enemy)
@@ -23,5 +23,25 @@ class Human
         if ($this->hitPoints < 0) {
             $this->hitPoints = 0;
         }
+    }
+    
+    public function getName()
+    {
+        return $this->name;
+    }
+    
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+    
+    public function getHitPoints()
+    {
+        return $this->hitPoints;
+    }
+    
+    public function getAttackPoints()
+    {
+        return $this->attackPoints;
     }
 }
