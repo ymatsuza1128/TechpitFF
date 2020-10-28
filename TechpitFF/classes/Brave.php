@@ -14,7 +14,7 @@ class Brave extends Human
             // スキルの発動
             echo "『" .$this->getName() . "』のスキルが発動した！\n";
             echo "『ぜんりょくぎり』！！\n";
-            echo $enemy->name . " に " . $this->getAttackPoints() * 1.5 . " のダメージ！\n";
+            echo $enemy->getName() . " に " . $this->getAttackPoints() * 1.5 . " のダメージ！\n";
             $enemy->takeDamege($this->getAttackPoints() * 1.5);
         } else {
             parent::doAttack($enemy);

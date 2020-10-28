@@ -1,26 +1,24 @@
 <?php
-error_reporting(E_ALL);
-// echo "処理のはじまりはじまり～！\n\n";
 // ファイルのロード
 require_once('./classes/Human.php');
 require_once('./classes/Enemy.php');
 require_once('./classes/Brave.php');
 
 // インスタンス化
-$tiida = new Brave();
-$goblin = new Enemy();
+$tiida = new Brave("ティーダ");
+$goblin = new Enemy("ゴブリン");
 
-$tiida->name = "ティーダ";
-$goblin->name = "ゴブリン";
+// $tiida->name = "ティーダ";
+// $goblin->name = "ゴブリン";
 
-$turn = 1; // ここを追加
+$turn = 1;
 
-while ($tiida->getHitPoints() > 0 && $goblin->hitPoints > 0) {
-    echo "*** $turn ターン目 ***\n\n"; // ここを追加
+while ($tiida->getHitPoints() > 0 && $goblin->getHitPoints() > 0) {
+    echo "*** $turn ターン目 ***\n\n";
 
      // 現在のHPの表示
     echo $tiida->getName() . "　：　" . $tiida->getHitPoints() . "/" . $tiida::MAX_HITPOINTS . "\n";
-    echo $goblin->name . "　：　" . $goblin->hitPoints . "/" . $goblin::MAX_HITPOINTS . "\n";
+    echo $goblin->getName() . "　：　" . $goblin->getHitPoints() . "/" . $goblin::MAX_HITPOINTS . "\n";
     echo "\n";
 
     // 攻撃
@@ -34,4 +32,4 @@ while ($tiida->getHitPoints() > 0 && $goblin->hitPoints > 0) {
 }
 echo "★★★ 戦闘終了 ★★★\n\n";
 echo $tiida->getName() . "　：　" . $tiida->getHitPoints() . "/" . $tiida::MAX_HITPOINTS . "\n";
-echo $goblin->name . "　：　" . $goblin->hitPoints . "/" . $goblin::MAX_HITPOINTS . "\n\n";
+echo $goblin->getName() . "　：　" . $goblin->getHitPoints() . "/" . $goblin::MAX_HITPOINTS . "\n\n";

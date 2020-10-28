@@ -9,10 +9,15 @@ class Human
     private $attackPoints = 20; // 攻撃力
 
     // メソッド
+    public function __construct($name)
+    {
+        $this->name = $name;
+    }
+
     public function doAttack($enemy)
     {
         echo "『" .$this->name . "』の攻撃！\n";
-        echo "【" . $enemy->name . "】に " . $this->attackPoints . " のダメージ！\n";
+        echo "【" . $enemy->getName() . "】に " . $this->attackPoints . " のダメージ！\n";
         $enemy->takeDamege($this->attackPoints);
     }
 
@@ -28,11 +33,6 @@ class Human
     public function getName()
     {
         return $this->name;
-    }
-
-    public function setName($name)
-    {
-        $this->name = $name;
     }
 
     public function getHitPoints()
