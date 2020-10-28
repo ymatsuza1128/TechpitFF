@@ -9,9 +9,11 @@ class Human
     private $attackPoints = 20; // 攻撃力
 
     // メソッド
-    public function __construct($name)
+    public function __construct($name, $hitPoints = 100, $attackPoints = 20)
     {
         $this->name = $name;
+        $this->hitPoints = $hitPoints;
+        $this->attackPoints = $attackPoints;
     }
 
     public function doAttack($enemy)
