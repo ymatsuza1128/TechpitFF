@@ -8,6 +8,11 @@ class WhiteMage extends Human
     private $attackPoints = 10;
     private $intelligence = 30; // 魔法攻撃力
 
+    public function __construct($name)
+    {
+        parent::__construct($name, $this->hitPoints, $this->attackPoints);
+    }
+
     public function doAttackWhiteMage($enemy, $human)
     {
         if (rand(1, 2) === 1) {

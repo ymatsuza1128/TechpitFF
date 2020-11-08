@@ -1,4 +1,5 @@
 <?php
+
 class BlackMage extends Human
 {
     // プロパティ
@@ -6,6 +7,11 @@ class BlackMage extends Human
     private $hitPoints = 80;
     private $attackPoints = 10;
     private $intelligence = 30; // 魔法攻撃力
+
+    public function __construct($name)
+    {
+        parent::__construct($name, $this->hitPoints, $this->attackPoints);
+    }
 
     public function doAttack($enemy)
     {

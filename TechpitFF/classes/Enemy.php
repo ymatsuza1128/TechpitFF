@@ -6,9 +6,10 @@ class Enemy
     private $hitPoints = 50; // 現在のHP
     private $attackPoints = 10; // 攻撃力
 
-    public function __construct($name)
+    public function __construct($name, $attackPoints)
     {
         $this->name = $name;
+        $this->attackPoints = $attackPoints;
     }
 
     public function doAttack($human)

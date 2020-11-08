@@ -32,6 +32,15 @@ class Human
         }
     }
 
+    public function recoveryDamege($heal, $target)
+    {
+        $this->hitPoints += $heal;
+        // 最大値を超えて回復しない
+        if ($this->hitPoints > $target::MAX_HITPOINTS) {
+            $this->hitPoints = $target::MAX_HITPOINTS;
+        }
+    }
+
     public function getName()
     {
         return $this->name;
