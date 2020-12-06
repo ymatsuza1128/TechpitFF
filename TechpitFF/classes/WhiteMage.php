@@ -10,7 +10,6 @@ class WhiteMage extends Human
 
     public function __construct($name)
     {
-        // parent::__construct($name, $this->hitPoints, $this->attackPoints);
         parent::__construct($name, $this->hitPoints, $this->attackPoints, $this->intelligence);
     }
 
@@ -20,13 +19,6 @@ class WhiteMage extends Human
         if (!$this->isEnableAttack($enemies)) {
             return false;
         }
-
-        // if ($this->hitPoints <= 0) {
-        //     return false;
-        // }
-
-        // $humanIndex = rand(0, count($humans) - 1); // 添字は0から始まるので、-1する
-        // $human = $humans[$humanIndex];
 
         if (rand(1, 2) === 1) {
             // ターゲットの決定

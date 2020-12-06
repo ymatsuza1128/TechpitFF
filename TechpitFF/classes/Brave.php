@@ -20,14 +20,6 @@ class Brave extends Human
         // ターゲットの決定
         $enemy = $this->selectTarget($enemies);
 
-        // // チェック１：自身のHPが0かどうか
-        // if ($this->hitPoints <= 0) {
-        //     return false;
-        // }
-
-        // $enemyIndex = rand(0, count($enemies) - 1); // 添字は0から始まるので、-1する
-        // $enemy = $enemies[$enemyIndex];
-
         // 乱数の発生
         if (rand(1, 3) === 1) {
             // スキルの発動
