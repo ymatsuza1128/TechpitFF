@@ -15,7 +15,7 @@ class Message
     {
         foreach ($objects as $object) {
             // 白魔道士の場合、味方のオブジェクトも渡す
-            if (get_class($object) == "TechpitFF\classes\WhiteMage") {
+            if (get_class($object) == "WhiteMage") {
                 $attackResult = $object->doAttackWhiteMage($targets, $objects);
             } else {
                 $attackResult = $object->doAttack($targets);
