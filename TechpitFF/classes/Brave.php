@@ -9,7 +9,6 @@ class Brave extends Human
     private static $instance;
 
     private function __construct($name)
-    // public function __construct($name)
     {
         parent::__construct($name, $this->hitPoints, $this->attackPoints);
     }
