@@ -1,43 +1,31 @@
 <?php
 // ファイルのロード
-require_once('./classes/Lives.php');
-require_once('./classes/Human.php');
-require_once('./classes/Enemy.php');
-require_once('./classes/Brave.php');
-require_once('./classes/BlackMage.php');
-require_once('./classes/Message.php');
-require_once('./classes/WhiteMage.php');
+require_once('./lib/Loader.php');
+require_once('./lib/Utility.php');
+
+// オートロード
+$loader = new Loader();
+// classesフォルダの中身をロード対象ディレクトリとして登録
+$loader->regDirectory(__DIR__ . '/classes');
+$loader->regDirectory(__DIR__ . '/classes/constants'); // この行を追加
+$loader->register();
 
 // インスタンス化
 $members = array();
-$members[] = new Brave('ティーダ');
-$members[] = new WhiteMage('ユウナ');
-$members[] = new BlackMage('ルールー');
+// $members[] = new Brave(CharacterName::TIIDA);
+$members[] = Brave::getInstance(CharacterName::TIIDA);
+$members[] = new WhiteMage(CharacterName::YUNA);
+$members[] = new BlackMage(CharacterName::RULU);
 
 $enemies = array();
-$enemies[] = new Enemy('ゴブリン', 20);
-$enemies[] = new Enemy('ボム', 25);
-$enemies[] = new Enemy('モルボル', 30);
+$enemies[] = new Enemy(EnemyName::GOBLINS, 20);
+$enemies[] = new Enemy(EnemyName::BOMB, 25);
+$enemies[] = new Enemy(EnemyName::MORBOL, 30);
 
 $turn = 1;
 $isFinishFlg = false;
 
 $messageObj = new Message;
-
-// 終了条件の判定
-function isFinish($objects)
-{
-    $deathCnt = 0; // HPが0以下の数
-    foreach ($objects as $object) {
-        if ($object->getHitPoints() > 0) {
-            return false;
-        }
-        $deathCnt++;
-    }
-    if ($deathCnt === count($objects)) {
-        return true;
-    }
-}
 
 while (!$isFinishFlg) {
     echo "*** $turn ターン目 ***\n\n";
