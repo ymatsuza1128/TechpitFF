@@ -4,15 +4,15 @@ class Lives
 {
     // プロパティ
     private $name;
-    private $hitPoints;
+    private $hitPoint;
     private $attackPoints;
     private $intelligence;
 
     // メソッド
-    public function __construct($name, $hitPoints = 50, $attackPoints = 10, $intelligence = 0)
+    public function __construct($name, $hitPoint = 50, $attackPoints = 10, $intelligence = 0)
     {
         $this->name = $name;
-        $this->hitPoints = $hitPoints;
+        $this->hitPoint = $hitPoint;
         $this->attackPoints = $attackPoints;
         $this->intelligence = $intelligence;
     }
@@ -24,9 +24,9 @@ class Lives
     }
 
     // 現在HPを取得するメソッド（ゲッター）
-    public function getHitPoints()
+    public function getHitPoint()
     {
-        $result = $this->hitPoints;
+        $result = $this->hitPoint;
         if ($result < 0) {
             $result = 0;
         }
@@ -34,22 +34,22 @@ class Lives
     }
 
     // 現在HPを設定するメソッド（セッター）
-    public function takeDamege($damege)
+    public function tookDamege($damege)
     {
-        $this->hitPoints -= $damege;
+        $this->hitPoint -= $damege;
         // HPが0未満にならないための処理
-        if ($this->hitPoints < 0) {
-            $this->hitPoints = 0;
+        if ($this->hitPoint < 0) {
+            $this->hitPoint = 0;
         }
     }
 
     // 現在HPを設定するメソッド（セッター）
     public function recoveryDamege($heal, Object $target)
     {
-        $this->hitPoints += $heal;
+        $this->hitPoint += $heal;
         // 最大値を超えて回復しない
-        if ($this->hitPoints > $target::MAX_HITPOINTS) {
-            $this->hitPoints = $target::MAX_HITPOINTS;
+        if ($this->hitPoint > $target::MAX_HITPOINT) {
+            $this->hitPoint = $target::MAX_HITPOINT;
         }
     }
 
@@ -64,7 +64,7 @@ class Lives
 
         echo "『" .$this->name . "』の攻撃！\n";
         echo "【" . $target->getName() . "】に " . $this->attackPoints . " のダメージ！\n";
-        $target->takeDamege($this->attackPoints);
+        $target->tookDamege($this->attackPoints);
         return true;
     }
 
@@ -72,13 +72,13 @@ class Lives
     public function isEnableAttack($targets)
     {
         // チェック１：自信のHPが0以上かどうか
-        if ($this->hitPoints <= 0) {
+        if ($this->hitPoint <= 0) {
             return false;
         }
         // チェック２：敵が全員HP0以下かどうか
         $isAllDie = true;
         foreach ($targets as $target) {
-            if ($target->getHitPoints() > 0) {
+            if ($target->getHitPoint() > 0) {
                 $isAllDie = false;
             }
         }
@@ -95,7 +95,7 @@ class Lives
     {
         $target = $targets[rand(0, count($targets) -1)];
         // 敵のHPが0以下の場合再度ターゲットを決める
-        while ($target->getHitPoints() <= 0) {
+        while ($target->getHitPoint() <= 0) {
             $target = $targets[rand(0, count($targets) -1)];
         }
         return $target;

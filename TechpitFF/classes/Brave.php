@@ -2,15 +2,15 @@
 
 class Brave extends Human
 {
-    const MAX_HITPOINTS = 120;
-    private $hitPoints = self::MAX_HITPOINTS;
+    const MAX_HITPOINT = 120;
+    private $hitPoint = self::MAX_HITPOINT;
     private $attackPoints = 30;
 
     private static $instance;
 
     private function __construct($name)
     {
-        parent::__construct($name, $this->hitPoints, $this->attackPoints);
+        parent::__construct($name, $this->hitPoint, $this->attackPoints);
     }
 
     // シングルトンで常にインスタンスは一つしか生成しない
@@ -38,7 +38,7 @@ class Brave extends Human
             echo "『" .$this->getName() . "』のスキルが発動した！\n";
             echo "『ぜんりょくぎり』！！\n";
             echo $enemy->getName() . " に " . $this->attackPoints * 1.5 . " のダメージ！\n";
-            $enemy->takeDamege($this->attackPoints * 1.5);
+            $enemy->tookDamege($this->attackPoints * 1.5);
         } else {
             parent::doAttack($enemies);
         }

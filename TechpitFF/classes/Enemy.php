@@ -2,13 +2,13 @@
 // class Enemy
 class Enemy extends Lives
 {
-    const MAX_HITPOINTS = 50; // 最大HPの定義 定数
+    const MAX_HITPOINT = 50; // 最大HPの定義 定数
 
     public function __construct($name, $attackPoints)
     {
-        $hitPoints = 50;
+        $hitPoint = 50;
         $intelligence = 0;
-        parent::__construct($name, $hitPoints, $attackPoints, $intelligence);
+        parent::__construct($name, $hitPoint, $attackPoints, $intelligence);
     }
 
 }
