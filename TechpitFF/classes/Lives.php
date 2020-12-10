@@ -5,15 +5,15 @@ class Lives
     // プロパティ
     private $name;
     private $hitPoint;
-    private $attackPoints;
+    private $attackPoint;
     private $intelligence;
 
     // メソッド
-    public function __construct($name, $hitPoint = 50, $attackPoints = 10, $intelligence = 0)
+    public function __construct($name, $hitPoint = 50, $attackPoint = 10, $intelligence = 0)
     {
         $this->name = $name;
         $this->hitPoint = $hitPoint;
-        $this->attackPoints = $attackPoints;
+        $this->attackPoint = $attackPoint;
         $this->intelligence = $intelligence;
     }
 
@@ -63,8 +63,8 @@ class Lives
         $target = $this->selectTarget($targets);
 
         echo "『" .$this->name . "』の攻撃！\n";
-        echo "【" . $target->getName() . "】に " . $this->attackPoints . " のダメージ！\n";
-        $target->tookDamege($this->attackPoints);
+        echo "【" . $target->getName() . "】に " . $this->attackPoint . " のダメージ！\n";
+        $target->tookDamege($this->attackPoint);
         return true;
     }
 
