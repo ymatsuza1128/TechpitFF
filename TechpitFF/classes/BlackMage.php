@@ -26,7 +26,7 @@ class BlackMage extends Human
             echo "『" .$this->getName() . "』のスキルが発動した！\n";
             echo "『ファイア』！！\n";
             echo $enemy->getName() . " に " . $this->intelligence * 1.5 . " のダメージ！\n";
-            $enemy->tookDamege($this->intelligence * 1.5);
+            $enemy->tookDamage($this->intelligence * 1.5);
         } else {
             parent::doAttack($enemies);
         }

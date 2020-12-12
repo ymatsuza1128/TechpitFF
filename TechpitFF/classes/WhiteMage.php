@@ -27,7 +27,7 @@ class WhiteMage extends Human
             echo "『" .$this->getName() . "』のスキルが発動した！\n";
             echo "『ケアル』！！\n";
             echo $member->getName() . " のHPを " . $this->intelligence * 1.5 . " 回復！\n";
-            $member->recoveryDamege($this->intelligence * 1.5, $member);
+            $member->recoveryDamage($this->intelligence * 1.5, $member);
         } else {
             // ターゲットの決定
             $enemy = $this->selectTarget($enemies);

@@ -34,9 +34,9 @@ class Lives
     }
 
     // 現在HPを設定するメソッド（セッター）
-    public function tookDamege($damege)
+    public function tookDamage($damage)
     {
-        $this->hitPoint -= $damege;
+        $this->hitPoint -= $damage;
         // HPが0未満にならないための処理
         if ($this->hitPoint < 0) {
             $this->hitPoint = 0;
@@ -44,7 +44,7 @@ class Lives
     }
 
     // 現在HPを設定するメソッド（セッター）
-    public function recoveryDamege($heal, Object $target)
+    public function recoveryDamage($heal, Object $target)
     {
         $this->hitPoint += $heal;
         // 最大値を超えて回復しない
@@ -64,7 +64,7 @@ class Lives
 
         echo "『" .$this->name . "』の攻撃！\n";
         echo "【" . $target->getName() . "】に " . $this->attackPoint . " のダメージ！\n";
-        $target->tookDamege($this->attackPoint);
+        $target->tookDamage($this->attackPoint);
         return true;
     }
 
