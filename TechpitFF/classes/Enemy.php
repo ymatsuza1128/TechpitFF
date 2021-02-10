@@ -1,25 +1,14 @@
 <?php
-class Enemy
+// class Enemy
+class Enemy extends Lives
 {
-    const MAX_HITPOINTS = 50; // 最大HPの定義 定数
-    public $name; // 敵の名前
-    public $hitPoints = self::MAX_HITPOINTS; // 現在のHP
-    public $attackPoints = 10; // 攻撃力
-    
-    public function doAttack($human)
+    const MAX_HITPOINT = 50; // 最大HPの定義 定数
+
+    public function __construct($name, $attackPoint)
     {
-        echo "『" .$this->name . "』の攻撃！\n";
-        echo "【" . $human->name . "】に " . $this->attackPoints . " のダメージ！\n";
-        $human->takeDamege($this->attackPoints);
-    }
-    
-    public function takeDamege($damege)
-    {
-        $this->hitPoints -= $damege;
-        // HPが0未満にならないための処理
-        if ($this->hitPoints < 0) {
-            $this->hitPoints = 0;
-        }
+        $hitPoint = 50;
+        $intelligence = 0;
+        parent::__construct($name, $hitPoint, $attackPoint, $intelligence);
     }
 
 }
